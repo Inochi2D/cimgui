@@ -1190,6 +1190,28 @@
         "value": "3"
       }
     ],
+    "ImGuiDockRequestType": [
+      {
+        "calc_value": 0,
+        "name": "ImGuiDockRequestType_None",
+        "value": "0"
+      },
+      {
+        "calc_value": 1,
+        "name": "ImGuiDockRequestType_Dock",
+        "value": "1"
+      },
+      {
+        "calc_value": 2,
+        "name": "ImGuiDockRequestType_Undock",
+        "value": "2"
+      },
+      {
+        "calc_value": 3,
+        "name": "ImGuiDockRequestType_Split",
+        "value": "3"
+      }
+    ],
     "ImGuiDragDropFlags_": [
       {
         "calc_value": 0,
@@ -3515,7 +3537,7 @@
     "ImFontAtlas": "imgui:2694",
     "ImFontAtlasCustomRect": "imgui:2656",
     "ImFontAtlasFlags_": "imgui:2669",
-    "ImFontBuilderIO": "imgui_internal:2933",
+    "ImFontBuilderIO": "imgui_internal:2991",
     "ImFontConfig": "imgui:2600",
     "ImFontGlyph": "imgui:2629",
     "ImFontGlyphRangesBuilder": "imgui:2641",
@@ -3542,7 +3564,11 @@
     "ImGuiDockNode": "imgui_internal:1293",
     "ImGuiDockNodeFlagsPrivate_": "imgui_internal:1253",
     "ImGuiDockNodeFlags_": "imgui:1302",
+    "ImGuiDockNodeSettings": "imgui_internal:2970",
     "ImGuiDockNodeState": "imgui_internal:1284",
+    "ImGuiDockPreviewData": "imgui_internal:2954",
+    "ImGuiDockRequest": "imgui_internal:2938",
+    "ImGuiDockRequestType": "imgui_internal:2930",
     "ImGuiDragDropFlags_": "imgui:1315",
     "ImGuiFocusedFlags_": "imgui:1272",
     "ImGuiGroupData": "imgui_internal:1012",
@@ -5407,6 +5433,125 @@
         "bitfield": "1",
         "name": "MarkedForPosSizeWrite",
         "type": "bool"
+      }
+    ],
+    "ImGuiDockNodeSettings": [
+      {
+        "name": "ID",
+        "type": "ImGuiID"
+      },
+      {
+        "name": "ParentNodeId",
+        "type": "ImGuiID"
+      },
+      {
+        "name": "ParentWindowId",
+        "type": "ImGuiID"
+      },
+      {
+        "name": "SelectedTabId",
+        "type": "ImGuiID"
+      },
+      {
+        "name": "SplitAxis",
+        "type": "signed char"
+      },
+      {
+        "name": "Depth",
+        "type": "char"
+      },
+      {
+        "name": "Flags",
+        "type": "ImGuiDockNodeFlags"
+      },
+      {
+        "name": "Pos",
+        "type": "ImVec2ih"
+      },
+      {
+        "name": "Size",
+        "type": "ImVec2ih"
+      },
+      {
+        "name": "SizeRef",
+        "type": "ImVec2ih"
+      }
+    ],
+    "ImGuiDockPreviewData": [
+      {
+        "name": "FutureNode",
+        "type": "ImGuiDockNode"
+      },
+      {
+        "name": "IsDropAllowed",
+        "type": "bool"
+      },
+      {
+        "name": "IsCenterAvailable",
+        "type": "bool"
+      },
+      {
+        "name": "IsSidesAvailable",
+        "type": "bool"
+      },
+      {
+        "name": "IsSplitDirExplicit",
+        "type": "bool"
+      },
+      {
+        "name": "SplitNode",
+        "type": "ImGuiDockNode*"
+      },
+      {
+        "name": "SplitDir",
+        "type": "ImGuiDir"
+      },
+      {
+        "name": "SplitRatio",
+        "type": "float"
+      },
+      {
+        "name": "DropRectsDraw[4+1]",
+        "size": 5,
+        "type": "ImRect"
+      }
+    ],
+    "ImGuiDockRequest": [
+      {
+        "name": "Type",
+        "type": "ImGuiDockRequestType"
+      },
+      {
+        "name": "DockTargetWindow",
+        "type": "ImGuiWindow*"
+      },
+      {
+        "name": "DockTargetNode",
+        "type": "ImGuiDockNode*"
+      },
+      {
+        "name": "DockPayload",
+        "type": "ImGuiWindow*"
+      },
+      {
+        "name": "DockSplitDir",
+        "type": "ImGuiDir"
+      },
+      {
+        "name": "DockSplitRatio",
+        "type": "float"
+      },
+      {
+        "name": "DockSplitOuter",
+        "type": "bool"
+      },
+      {
+        "name": "UndockTargetWindow",
+        "type": "ImGuiWindow*"
+      },
+      {
+        "name": "UndockTargetNode",
+        "type": "ImGuiDockNode*"
       }
     ],
     "ImGuiGroupData": [

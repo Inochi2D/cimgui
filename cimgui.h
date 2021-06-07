@@ -40,6 +40,7 @@ typedef unsigned __int64 ImU64;
 
 
 #ifdef CIMGUI_DEFINE_ENUMS_AND_STRUCTS
+typedef struct ImGuiDockPreviewData ImGuiDockPreviewData;
 typedef struct ImGuiTableColumnSettings ImGuiTableColumnSettings;
 typedef struct ImGuiTableCellData ImGuiTableCellData;
 typedef struct ImGuiViewportP ImGuiViewportP;
@@ -2530,6 +2531,49 @@ struct ImGuiTableSettings
     ImGuiTableColumnIdx ColumnsCountMax;
     bool WantApply;
 };
+typedef enum {
+    ImGuiDockRequestType_None = 0,
+    ImGuiDockRequestType_Dock,
+    ImGuiDockRequestType_Undock,
+    ImGuiDockRequestType_Split
+}ImGuiDockRequestType;
+struct ImGuiDockRequest
+{
+    ImGuiDockRequestType Type;
+    ImGuiWindow* DockTargetWindow;
+    ImGuiDockNode* DockTargetNode;
+    ImGuiWindow* DockPayload;
+    ImGuiDir DockSplitDir;
+    float DockSplitRatio;
+    bool DockSplitOuter;
+    ImGuiWindow* UndockTargetWindow;
+    ImGuiDockNode* UndockTargetNode;
+};
+struct ImGuiDockPreviewData
+{
+    ImGuiDockNode FutureNode;
+    bool IsDropAllowed;
+    bool IsCenterAvailable;
+    bool IsSidesAvailable;
+    bool IsSplitDirExplicit;
+    ImGuiDockNode* SplitNode;
+    ImGuiDir SplitDir;
+    float SplitRatio;
+    ImRect DropRectsDraw[4 + 1];
+};
+struct ImGuiDockNodeSettings
+{
+    ImGuiID ID;
+    ImGuiID ParentNodeId;
+    ImGuiID ParentWindowId;
+    ImGuiID SelectedTabId;
+    signed char SplitAxis;
+    char Depth;
+    ImGuiDockNodeFlags Flags;
+    ImVec2ih Pos;
+    ImVec2ih Size;
+    ImVec2ih SizeRef;
+};
 struct ImFontBuilderIO
 {
     bool (*FontBuilder_Build)(ImFontAtlas* atlas);
@@ -3771,6 +3815,12 @@ CIMGUI_API void igDebugNodeWindowSettings(ImGuiWindowSettings* settings);
 CIMGUI_API void igDebugNodeWindowsList(ImVector_ImGuiWindowPtr* windows,const char* label);
 CIMGUI_API void igDebugNodeViewport(ImGuiViewportP* viewport);
 CIMGUI_API void igDebugRenderViewportThumbnail(ImDrawList* draw_list,ImGuiViewportP* viewport,const ImRect bb);
+CIMGUI_API ImGuiDockRequest* ImGuiDockRequest_ImGuiDockRequest(void);
+CIMGUI_API void ImGuiDockRequest_destroy(ImGuiDockRequest* self);
+CIMGUI_API ImGuiDockPreviewData* ImGuiDockPreviewData_ImGuiDockPreviewData(void);
+CIMGUI_API void ImGuiDockPreviewData_destroy(ImGuiDockPreviewData* self);
+CIMGUI_API ImGuiDockNodeSettings* ImGuiDockNodeSettings_ImGuiDockNodeSettings(void);
+CIMGUI_API void ImGuiDockNodeSettings_destroy(ImGuiDockNodeSettings* self);
 CIMGUI_API const ImFontBuilderIO* igImFontAtlasGetBuilderForStbTruetype(void);
 CIMGUI_API void igImFontAtlasBuildInit(ImFontAtlas* atlas);
 CIMGUI_API void igImFontAtlasBuildSetupFont(ImFontAtlas* atlas,ImFont* font,ImFontConfig* font_config,float ascent,float descent);

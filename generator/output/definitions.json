@@ -5239,6 +5239,41 @@
       "stname": "ImGuiDockContext"
     }
   ],
+  "ImGuiDockNodeSettings_ImGuiDockNodeSettings": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGuiDockNodeSettings_ImGuiDockNodeSettings",
+      "constructor": true,
+      "defaults": {},
+      "funcname": "ImGuiDockNodeSettings",
+      "location": "imgui_internal:2982",
+      "ov_cimguiname": "ImGuiDockNodeSettings_ImGuiDockNodeSettings",
+      "signature": "()",
+      "stname": "ImGuiDockNodeSettings"
+    }
+  ],
+  "ImGuiDockNodeSettings_destroy": [
+    {
+      "args": "(ImGuiDockNodeSettings* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImGuiDockNodeSettings*"
+        }
+      ],
+      "call_args": "(self)",
+      "cimguiname": "ImGuiDockNodeSettings_destroy",
+      "defaults": {},
+      "destructor": true,
+      "ov_cimguiname": "ImGuiDockNodeSettings_destroy",
+      "ret": "void",
+      "signature": "(ImGuiDockNodeSettings*)",
+      "stname": "ImGuiDockNodeSettings"
+    }
+  ],
   "ImGuiDockNode_GetMergedFlags": [
     {
       "args": "(ImGuiDockNode* self)",
@@ -5515,6 +5550,76 @@
       "ret": "void",
       "signature": "(ImGuiDockNode*)",
       "stname": "ImGuiDockNode"
+    }
+  ],
+  "ImGuiDockPreviewData_ImGuiDockPreviewData": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGuiDockPreviewData_ImGuiDockPreviewData",
+      "constructor": true,
+      "defaults": {},
+      "funcname": "ImGuiDockPreviewData",
+      "location": "imgui_internal:2966",
+      "ov_cimguiname": "ImGuiDockPreviewData_ImGuiDockPreviewData",
+      "signature": "()",
+      "stname": "ImGuiDockPreviewData"
+    }
+  ],
+  "ImGuiDockPreviewData_destroy": [
+    {
+      "args": "(ImGuiDockPreviewData* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImGuiDockPreviewData*"
+        }
+      ],
+      "call_args": "(self)",
+      "cimguiname": "ImGuiDockPreviewData_destroy",
+      "defaults": {},
+      "destructor": true,
+      "ov_cimguiname": "ImGuiDockPreviewData_destroy",
+      "ret": "void",
+      "signature": "(ImGuiDockPreviewData*)",
+      "stname": "ImGuiDockPreviewData"
+    }
+  ],
+  "ImGuiDockRequest_ImGuiDockRequest": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGuiDockRequest_ImGuiDockRequest",
+      "constructor": true,
+      "defaults": {},
+      "funcname": "ImGuiDockRequest",
+      "location": "imgui_internal:2950",
+      "ov_cimguiname": "ImGuiDockRequest_ImGuiDockRequest",
+      "signature": "()",
+      "stname": "ImGuiDockRequest"
+    }
+  ],
+  "ImGuiDockRequest_destroy": [
+    {
+      "args": "(ImGuiDockRequest* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImGuiDockRequest*"
+        }
+      ],
+      "call_args": "(self)",
+      "cimguiname": "ImGuiDockRequest_destroy",
+      "defaults": {},
+      "destructor": true,
+      "ov_cimguiname": "ImGuiDockRequest_destroy",
+      "ret": "void",
+      "signature": "(ImGuiDockRequest*)",
+      "stname": "ImGuiDockRequest"
     }
   ],
   "ImGuiIO_AddInputCharacter": [
@@ -20489,7 +20594,7 @@
       "cimguiname": "igImFontAtlasBuildFinish",
       "defaults": {},
       "funcname": "ImFontAtlasBuildFinish",
-      "location": "imgui_internal:2943",
+      "location": "imgui_internal:3001",
       "ov_cimguiname": "igImFontAtlasBuildFinish",
       "ret": "void",
       "signature": "(ImFontAtlas*)",
@@ -20510,7 +20615,7 @@
       "cimguiname": "igImFontAtlasBuildInit",
       "defaults": {},
       "funcname": "ImFontAtlasBuildInit",
-      "location": "imgui_internal:2940",
+      "location": "imgui_internal:2998",
       "ov_cimguiname": "igImFontAtlasBuildInit",
       "ret": "void",
       "signature": "(ImFontAtlas*)",
@@ -20535,7 +20640,7 @@
       "cimguiname": "igImFontAtlasBuildMultiplyCalcLookupTable",
       "defaults": {},
       "funcname": "ImFontAtlasBuildMultiplyCalcLookupTable",
-      "location": "imgui_internal:2946",
+      "location": "imgui_internal:3004",
       "ov_cimguiname": "igImFontAtlasBuildMultiplyCalcLookupTable",
       "ret": "void",
       "signature": "(unsigned char[256],float)",
@@ -20580,7 +20685,7 @@
       "cimguiname": "igImFontAtlasBuildMultiplyRectAlpha8",
       "defaults": {},
       "funcname": "ImFontAtlasBuildMultiplyRectAlpha8",
-      "location": "imgui_internal:2947",
+      "location": "imgui_internal:3005",
       "ov_cimguiname": "igImFontAtlasBuildMultiplyRectAlpha8",
       "ret": "void",
       "signature": "(const unsigned char[256],unsigned char*,int,int,int,int,int)",
@@ -20605,7 +20710,7 @@
       "cimguiname": "igImFontAtlasBuildPackCustomRects",
       "defaults": {},
       "funcname": "ImFontAtlasBuildPackCustomRects",
-      "location": "imgui_internal:2942",
+      "location": "imgui_internal:3000",
       "ov_cimguiname": "igImFontAtlasBuildPackCustomRects",
       "ret": "void",
       "signature": "(ImFontAtlas*,void*)",
@@ -20654,7 +20759,7 @@
       "cimguiname": "igImFontAtlasBuildRender32bppRectFromString",
       "defaults": {},
       "funcname": "ImFontAtlasBuildRender32bppRectFromString",
-      "location": "imgui_internal:2945",
+      "location": "imgui_internal:3003",
       "ov_cimguiname": "igImFontAtlasBuildRender32bppRectFromString",
       "ret": "void",
       "signature": "(ImFontAtlas*,int,int,int,int,const char*,char,unsigned int)",
@@ -20703,7 +20808,7 @@
       "cimguiname": "igImFontAtlasBuildRender8bppRectFromString",
       "defaults": {},
       "funcname": "ImFontAtlasBuildRender8bppRectFromString",
-      "location": "imgui_internal:2944",
+      "location": "imgui_internal:3002",
       "ov_cimguiname": "igImFontAtlasBuildRender8bppRectFromString",
       "ret": "void",
       "signature": "(ImFontAtlas*,int,int,int,int,const char*,char,unsigned char)",
@@ -20740,7 +20845,7 @@
       "cimguiname": "igImFontAtlasBuildSetupFont",
       "defaults": {},
       "funcname": "ImFontAtlasBuildSetupFont",
-      "location": "imgui_internal:2941",
+      "location": "imgui_internal:2999",
       "ov_cimguiname": "igImFontAtlasBuildSetupFont",
       "ret": "void",
       "signature": "(ImFontAtlas*,ImFont*,ImFontConfig*,float,float)",
@@ -20756,7 +20861,7 @@
       "cimguiname": "igImFontAtlasGetBuilderForStbTruetype",
       "defaults": {},
       "funcname": "ImFontAtlasGetBuilderForStbTruetype",
-      "location": "imgui_internal:2939",
+      "location": "imgui_internal:2997",
       "ov_cimguiname": "igImFontAtlasGetBuilderForStbTruetype",
       "ret": "const ImFontBuilderIO*",
       "signature": "()",

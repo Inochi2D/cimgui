@@ -13,8 +13,10 @@ endif()
 file(GLOB IMGUI_SOURCES
     cimgui.cpp
     imgui/imgui.cpp
+    imgui/imgui.h
     imgui/imgui_draw.cpp
     imgui/imgui_demo.cpp
+    imgui/imgui_internal.h
     imgui/imgui_widgets.cpp
 	${TABLES_SOURCE}
 )
