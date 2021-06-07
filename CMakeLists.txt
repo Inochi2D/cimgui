@@ -45,10 +45,42 @@ else (WIN32)
     target_compile_definitions(cimgui PUBLIC IMGUI_IMPL_API=extern\t\"C\"\t)
 endif (WIN32)
 
+set(IMGUI_SDL "no" CACHE STRING "Build with SDL")
+set(IMGUI_OPENGL2 "no" CACHE STRING "Build with OpenGL2")
+set(IMGUI_OPENGL3 "no" CACHE STRING "Build with OpenGL3")
+
+if (IMGUI_SDL)
+    target_sources(cimgui
+    PRIVATE
+        imgui/backends/imgui_impl_sdl.cpp
+        imgui/backends/imgui_impl_sdl.h
+    )
+
+    target_link_libraries(cimgui PRIVATE SDL2)
+endif()
+
+if (IMGUI_OPENGL2)
+    target_sources(cimgui
+    PRIVATE
+        imgui/backends/imgui_impl_opengl2.cpp
+        imgui/backends/imgui_impl_opengl2.h
+    )
+endif()
+
+if (IMGUI_OPENGL3)
+    target_sources(cimgui
+    PRIVATE
+        imgui/backends/imgui_impl_opengl3.cpp
+        imgui/backends/imgui_impl_opengl3.h
+    )
+
+    target_link_libraries(cimgui PRIVATE glbinding)
+endif()
+
 target_include_directories(cimgui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(cimgui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui)
 set_target_properties(cimgui PROPERTIES PREFIX "")
-target_link_libraries(cimgui ${IMGUI_LIBRARIES})
+target_link_libraries(cimgui PUBLIC ${IMGUI_LIBRARIES})
 
 #install
 install(TARGETS cimgui
