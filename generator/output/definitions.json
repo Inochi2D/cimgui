@@ -5622,6 +5622,59 @@
       "stname": "ImGuiDockRequest"
     }
   ],
+  "ImGuiFreeType_GetBuilderForFreeType": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGuiFreeType_GetBuilderForFreeType",
+      "defaults": {},
+      "funcname": "GetBuilderForFreeType",
+      "location": "imgui_freetype:39",
+      "namespace": "ImGuiFreeType",
+      "ov_cimguiname": "ImGuiFreeType_GetBuilderForFreeType",
+      "ret": "const ImFontBuilderIO*",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
+  "ImGuiFreeType_SetAllocatorFunctions": [
+    {
+      "args": "(void*(*alloc_func)(size_t sz,void* user_data),void(*free_func)(void* ptr,void* user_data),void* user_data)",
+      "argsT": [
+        {
+          "name": "alloc_func",
+          "ret": "void*",
+          "signature": "(size_t sz,void* user_data)",
+          "type": "void*(*)(size_t sz,void* user_data)"
+        },
+        {
+          "name": "free_func",
+          "ret": "void",
+          "signature": "(void* ptr,void* user_data)",
+          "type": "void(*)(void* ptr,void* user_data)"
+        },
+        {
+          "name": "user_data",
+          "type": "void*"
+        }
+      ],
+      "argsoriginal": "(void*(*alloc_func)(size_t sz,void* user_data),void(*free_func)(void* ptr,void* user_data),void* user_data=((void*)0))",
+      "call_args": "(alloc_func,free_func,user_data)",
+      "cimguiname": "ImGuiFreeType_SetAllocatorFunctions",
+      "defaults": {
+        "user_data": "NULL"
+      },
+      "funcname": "SetAllocatorFunctions",
+      "location": "imgui_freetype:43",
+      "namespace": "ImGuiFreeType",
+      "ov_cimguiname": "ImGuiFreeType_SetAllocatorFunctions",
+      "ret": "void",
+      "signature": "(void*(*)(size_t,void*),void(*)(void*,void*),void*)",
+      "stname": ""
+    }
+  ],
   "ImGuiIO_AddInputCharacter": [
     {
       "args": "(ImGuiIO* self,unsigned int c)",
