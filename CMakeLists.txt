@@ -23,13 +23,17 @@ file(GLOB IMGUI_SOURCES
 
 set(IMGUI_STATIC "no" CACHE STRING "Build as a static library")
 set(IMGUI_FREETYPE "no" CACHE STRING "Build with freetype library")
+set(IMGUI_FREETYPE_IN_TREE "no" CACHE STRING "freetype library is being build in-tree")
 set(IMGUI_LIBRARIES )
 
 if(IMGUI_FREETYPE)
-	FIND_PACKAGE(freetype REQUIRED PATHS ${FREETYPE_PATH})
-	list(APPEND IMGUI_LIBRARIES freetype)
-	list(APPEND IMGUI_SOURCES imgui/misc/freetype/imgui_freetype.cpp)
-	add_definitions("-DCIMGUI_FREETYPE=1")
+    if (NOT IMGUI_FREETYPE_IN_TREE)
+        FIND_PACKAGE(freetype REQUIRED PATHS ${FREETYPE_PATH})
+    endif ()
+
+    list(APPEND IMGUI_LIBRARIES freetype)
+    list(APPEND IMGUI_SOURCES imgui/misc/freetype/imgui_freetype.cpp)
+    add_definitions("-DCIMGUI_FREETYPE=1")
 endif(IMGUI_FREETYPE)
 
 #add library and link
@@ -47,11 +51,16 @@ else (WIN32)
     target_compile_definitions(cimgui PUBLIC IMGUI_IMPL_API=extern\t\"C\"\t)
 endif (WIN32)
 
+set(IMGUI_SDL_IN_TREE "no" CACHE STRING "SDL library is being build in-tree")
 set(IMGUI_SDL "no" CACHE STRING "Build with SDL")
 set(IMGUI_OPENGL2 "no" CACHE STRING "Build with OpenGL2")
 set(IMGUI_OPENGL3 "no" CACHE STRING "Build with OpenGL3")
 
 if (IMGUI_SDL)
+    if (NOT IMGUI_SDL_IN_TREE)
+        FIND_PACKAGE(sdl2 REQUIRED PATHS ${sdl2_PATH})
+    endif ()
+
     target_sources(cimgui
     PRIVATE
         imgui/backends/imgui_impl_sdl.cpp
