@@ -34,6 +34,8 @@ if(IMGUI_FREETYPE)
     list(APPEND IMGUI_LIBRARIES freetype)
     list(APPEND IMGUI_SOURCES imgui/misc/freetype/imgui_freetype.cpp)
     add_definitions("-DCIMGUI_FREETYPE=1")
+    add_definitions("-DIMGUI_ENABLE_FREETYPE=1")
+    add_definitions("-DIMGUI_ENABLE_STB_TRUETYPE=1")
 endif(IMGUI_FREETYPE)
 
 #add library and link
