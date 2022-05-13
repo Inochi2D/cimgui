@@ -28,7 +28,8 @@ set(IMGUI_LIBRARIES )
 
 if(IMGUI_FREETYPE)
     if (NOT IMGUI_FREETYPE_IN_TREE)
-        FIND_PACKAGE(freetype REQUIRED PATHS ${FREETYPE_PATH})
+        include(FindFreetype)
+        include_directories(${FREETYPE_INCLUDE_DIRS})
     endif ()
 
     list(APPEND IMGUI_LIBRARIES freetype)
@@ -60,7 +61,8 @@ set(IMGUI_OPENGL3 "no" CACHE STRING "Build with OpenGL3")
 
 if (IMGUI_SDL)
     if (NOT IMGUI_SDL_IN_TREE)
-        FIND_PACKAGE(sdl2 REQUIRED PATHS ${sdl2_PATH})
+        FIND_PACKAGE(SDL2 REQUIRED)
+        include_directories(${SDL2_INCLUDE_DIRS})
     endif ()
 
     target_sources(cimgui
