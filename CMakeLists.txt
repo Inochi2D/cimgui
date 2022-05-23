@@ -26,24 +26,28 @@ set(IMGUI_FREETYPE "no" CACHE STRING "Build with freetype library")
 set(IMGUI_FREETYPE_IN_TREE "no" CACHE STRING "freetype library is being build in-tree")
 set(IMGUI_LIBRARIES )
 
-if(IMGUI_FREETYPE)
-    if (NOT IMGUI_FREETYPE_IN_TREE)
-        FIND_PACKAGE(freetype REQUIRED PATHS ${FREETYPE_PATH})
-    endif ()
-
-    list(APPEND IMGUI_LIBRARIES freetype)
-    list(APPEND IMGUI_SOURCES imgui/misc/freetype/imgui_freetype.cpp)
-    add_definitions("-DCIMGUI_FREETYPE=1")
-    add_definitions("-DIMGUI_ENABLE_FREETYPE=1")
-    add_definitions("-DIMGUI_ENABLE_STB_TRUETYPE=1")
-endif(IMGUI_FREETYPE)
-
 #add library and link
 if (IMGUI_STATIC)
     add_library(cimgui STATIC ${IMGUI_SOURCES})
 else (IMGUI_STATIC)
     add_library(cimgui SHARED ${IMGUI_SOURCES})
 endif (IMGUI_STATIC)
+
+if(IMGUI_FREETYPE)
+    if (NOT IMGUI_FREETYPE_IN_TREE)
+        include(FindFreetype)
+        target_include_directories(cimgui PRIVATE ${FREETYPE_INCLUDE_DIRS})
+        #FIND_PACKAGE(freetype REQUIRED PATHS ${FREETYPE_PATH})
+        target_link_libraries(cimgui PRIVATE ${FREETYPE_LIBRARIES})
+    else()
+        target_link_libraries(cimgui PRIVATE freetype)
+    endif ()
+
+    target_sources(cimgui PUBLIC imgui/misc/freetype/imgui_freetype.cpp)
+    target_compile_definitions(cimgui PUBLIC "-DCIMGUI_FREETYPE=1")
+    target_compile_definitions(cimgui PUBLIC "-DIMGUI_ENABLE_FREETYPE=1")
+    target_compile_definitions(cimgui PUBLIC "-DIMGUI_ENABLE_STB_TRUETYPE=1")
+endif(IMGUI_FREETYPE)
 
 target_compile_definitions(cimgui PUBLIC IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1)
 if (WIN32)
@@ -61,6 +65,7 @@ set(IMGUI_OPENGL3 "no" CACHE STRING "Build with OpenGL3")
 if (IMGUI_SDL)
     if (NOT IMGUI_SDL_IN_TREE)
         FIND_PACKAGE(sdl2 REQUIRED PATHS ${sdl2_PATH})
+        target_include_directories(cimgui PRIVATE ${SDL2_INCLUDE_DIR})
     endif ()
 
     target_sources(cimgui
