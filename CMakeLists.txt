@@ -64,7 +64,7 @@ set(IMGUI_OPENGL3 "no" CACHE STRING "Build with OpenGL3")
 
 if (IMGUI_SDL)
     if (NOT IMGUI_SDL_IN_TREE)
-        FIND_PACKAGE(sdl2 REQUIRED PATHS ${sdl2_PATH})
+        find_package(SDL2 REQUIRED)
         target_include_directories(cimgui PRIVATE ${SDL2_INCLUDE_DIR})
     endif ()
 
