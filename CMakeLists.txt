@@ -79,9 +79,8 @@ if (IMGUI_OPENGL2)
         imgui/backends/imgui_impl_opengl2.h
     )
 
-    if (UNIX)
-        target_link_libraries(cimgui PRIVATE GL)
-    endif()
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(cimgui PRIVATE OpenGL::GL)
 endif()
 
 if (IMGUI_OPENGL3)
@@ -91,9 +90,8 @@ if (IMGUI_OPENGL3)
         imgui/backends/imgui_impl_opengl3.h
     )
 
-    if (UNIX)
-        target_link_libraries(cimgui PRIVATE GL)
-    endif()
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(cimgui PRIVATE OpenGL::GL)
 endif()
 
 target_include_directories(cimgui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
