@@ -2808,7 +2808,7 @@ CIMGUI_API ImGuiID igImHashStr(const char* data,size_t data_size,ImGuiID seed)
 {
     return ImHashStr(data,data_size,seed);
 }
-CIMGUI_API void igImQsort(void* base,size_t count,size_t size_of_element,int(*compare_func)(void const*,void const*))
+CIMGUI_API void igImQsort(void* base,size_t count,size_t size_of_element,int(__cdecl*compare_func)(void const*,void const*))
 {
     return ImQsort(base,count,size_of_element,compare_func);
 }
@@ -5807,18 +5807,6 @@ CIMGUI_API void igImFontAtlasBuildGetOversampleFactors(const ImFontConfig* cfg,i
 {
     return ImFontAtlasBuildGetOversampleFactors(cfg,out_oversample_h,out_oversample_v);
 }
-#ifdef IMGUI_ENABLE_FREETYPE
-CIMGUI_API const ImFontBuilderIO* ImGuiFreeType_GetBuilderForFreeType()
-{
-    return ImGuiFreeType::GetBuilderForFreeType();
-}
-
-CIMGUI_API void ImGuiFreeType_SetAllocatorFunctions(void*(*alloc_func)(size_t sz,void* user_data),void(*free_func)(void* ptr,void* user_data),void* user_data)
-{
-    return ImGuiFreeType::SetAllocatorFunctions(alloc_func,free_func,user_data);
-}
-
-#endif
 
 
 
