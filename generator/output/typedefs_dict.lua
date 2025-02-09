@@ -53,6 +53,7 @@ local t={
   ImGuiDockNode="struct ImGuiDockNode",
   ImGuiDockNodeFlags="int",
   ImGuiDockNodeSettings="struct ImGuiDockNodeSettings",
+  ImGuiDockPreviewData="struct ImGuiDockPreviewData",
   ImGuiDockRequest="struct ImGuiDockRequest",
   ImGuiDragDropFlags="int",
   ImGuiErrorCallback="void (*)(ImGuiContext* ctx, void* user_data, const char* msg);",

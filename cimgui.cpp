@@ -5763,6 +5763,30 @@ CIMGUI_API void igDebugRenderViewportThumbnail(ImDrawList* draw_list,ImGuiViewpo
 {
     return ImGui::DebugRenderViewportThumbnail(draw_list,viewport,bb);
 }
+CIMGUI_API ImGuiDockRequest* ImGuiDockRequest_ImGuiDockRequest(void)
+{
+    return IM_NEW(ImGuiDockRequest)();
+}
+CIMGUI_API void ImGuiDockRequest_destroy(ImGuiDockRequest* self)
+{
+    IM_DELETE(self);
+}
+CIMGUI_API ImGuiDockPreviewData* ImGuiDockPreviewData_ImGuiDockPreviewData(void)
+{
+    return IM_NEW(ImGuiDockPreviewData)();
+}
+CIMGUI_API void ImGuiDockPreviewData_destroy(ImGuiDockPreviewData* self)
+{
+    IM_DELETE(self);
+}
+CIMGUI_API ImGuiDockNodeSettings* ImGuiDockNodeSettings_ImGuiDockNodeSettings(void)
+{
+    return IM_NEW(ImGuiDockNodeSettings)();
+}
+CIMGUI_API void ImGuiDockNodeSettings_destroy(ImGuiDockNodeSettings* self)
+{
+    IM_DELETE(self);
+}
 CIMGUI_API const ImFontBuilderIO* igImFontAtlasGetBuilderForStbTruetype()
 {
     return ImFontAtlasGetBuilderForStbTruetype();

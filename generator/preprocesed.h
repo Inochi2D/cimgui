@@ -4011,6 +4011,8 @@ Index of this file:
 
 
 
+
+
 //-----------------------------------------------------------------------------
 // [SECTION] Header mess
 //-----------------------------------------------------------------------------
@@ -4544,11 +4546,11 @@ struct ImBitArray
     ImBitArray()                                { ClearAllBits(); }
     void            ClearAllBits()              { memset(Storage, 0, sizeof(Storage)); }
     void            SetAllBits()                { memset(Storage, 255, sizeof(Storage)); }
-    bool            TestBit(int n) const        { n += OFFSET; (void)( (!!(n >= 0 && n < BITCOUNT)) || (_wassert(L"n >= 0 && n < BITCOUNT", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(614)), 0) ); return ((Storage[(n) >> 5] & ((ImU32)1 << ((n) & 31))) != 0); }
-    void            SetBit(int n)               { n += OFFSET; (void)( (!!(n >= 0 && n < BITCOUNT)) || (_wassert(L"n >= 0 && n < BITCOUNT", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(615)), 0) ); ImBitArraySetBit(Storage, n); }
-    void            ClearBit(int n)             { n += OFFSET; (void)( (!!(n >= 0 && n < BITCOUNT)) || (_wassert(L"n >= 0 && n < BITCOUNT", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(616)), 0) ); ImBitArrayClearBit(Storage, n); }
-    void            SetBitRange(int n, int n2)  { n += OFFSET; n2 += OFFSET; (void)( (!!(n >= 0 && n < BITCOUNT && n2 > n && n2 <= BITCOUNT)) || (_wassert(L"n >= 0 && n < BITCOUNT && n2 > n && n2 <= BITCOUNT", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(617)), 0) ); ImBitArraySetBitRange(Storage, n, n2); } // Works on range [n..n2)
-    bool            operator[](int n) const     { n += OFFSET; (void)( (!!(n >= 0 && n < BITCOUNT)) || (_wassert(L"n >= 0 && n < BITCOUNT", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(618)), 0) ); return ((Storage[(n) >> 5] & ((ImU32)1 << ((n) & 31))) != 0); }
+    bool            TestBit(int n) const        { n += OFFSET; (void)( (!!(n >= 0 && n < BITCOUNT)) || (_wassert(L"n >= 0 && n < BITCOUNT", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(616)), 0) ); return ((Storage[(n) >> 5] & ((ImU32)1 << ((n) & 31))) != 0); }
+    void            SetBit(int n)               { n += OFFSET; (void)( (!!(n >= 0 && n < BITCOUNT)) || (_wassert(L"n >= 0 && n < BITCOUNT", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(617)), 0) ); ImBitArraySetBit(Storage, n); }
+    void            ClearBit(int n)             { n += OFFSET; (void)( (!!(n >= 0 && n < BITCOUNT)) || (_wassert(L"n >= 0 && n < BITCOUNT", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(618)), 0) ); ImBitArrayClearBit(Storage, n); }
+    void            SetBitRange(int n, int n2)  { n += OFFSET; n2 += OFFSET; (void)( (!!(n >= 0 && n < BITCOUNT && n2 > n && n2 <= BITCOUNT)) || (_wassert(L"n >= 0 && n < BITCOUNT && n2 > n && n2 <= BITCOUNT", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(619)), 0) ); ImBitArraySetBitRange(Storage, n, n2); } // Works on range [n..n2)
+    bool            operator[](int n) const     { n += OFFSET; (void)( (!!(n >= 0 && n < BITCOUNT)) || (_wassert(L"n >= 0 && n < BITCOUNT", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(620)), 0) ); return ((Storage[(n) >> 5] & ((ImU32)1 << ((n) & 31))) != 0); }
 };
 
 // Helper: ImBitVector
@@ -4558,9 +4560,9 @@ struct  ImBitVector
     ImVector<ImU32> Storage;
     void            Create(int sz)              { Storage.resize((sz + 31) >> 5); memset(Storage.Data, 0, (size_t)Storage.Size * sizeof(Storage.Data[0])); }
     void            Clear()                     { Storage.clear(); }
-    bool            TestBit(int n) const        { (void)( (!!(n < (Storage.Size << 5))) || (_wassert(L"n < (Storage.Size << 5)", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(628)), 0) ); return ((Storage.Data[(n) >> 5] & ((ImU32)1 << ((n) & 31))) != 0); }
-    void            SetBit(int n)               { (void)( (!!(n < (Storage.Size << 5))) || (_wassert(L"n < (Storage.Size << 5)", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(629)), 0) ); ImBitArraySetBit(Storage.Data, n); }
-    void            ClearBit(int n)             { (void)( (!!(n < (Storage.Size << 5))) || (_wassert(L"n < (Storage.Size << 5)", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(630)), 0) ); ImBitArrayClearBit(Storage.Data, n); }
+    bool            TestBit(int n) const        { (void)( (!!(n < (Storage.Size << 5))) || (_wassert(L"n < (Storage.Size << 5)", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(630)), 0) ); return ((Storage.Data[(n) >> 5] & ((ImU32)1 << ((n) & 31))) != 0); }
+    void            SetBit(int n)               { (void)( (!!(n < (Storage.Size << 5))) || (_wassert(L"n < (Storage.Size << 5)", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(631)), 0) ); ImBitArraySetBit(Storage.Data, n); }
+    void            ClearBit(int n)             { (void)( (!!(n < (Storage.Size << 5))) || (_wassert(L"n < (Storage.Size << 5)", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(632)), 0) ); ImBitArrayClearBit(Storage.Data, n); }
 };
 
 
@@ -4581,8 +4583,8 @@ struct ImSpan
     inline void         set(T* data, T* data_end)   { Data = data; DataEnd = data_end; }
     inline int          size() const                { return (int)(ptrdiff_t)(DataEnd - Data); }
     inline int          size_in_bytes() const       { return (int)(ptrdiff_t)(DataEnd - Data) * (int)sizeof(T); }
-    inline T&           operator[](int i)           { T* p = Data + i; (void)( (!!(p >= Data && p < DataEnd)) || (_wassert(L"p >= Data && p < DataEnd", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(651)), 0) ); return *p; }
-    inline const T&     operator[](int i) const     { const T* p = Data + i; (void)( (!!(p >= Data && p < DataEnd)) || (_wassert(L"p >= Data && p < DataEnd", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(652)), 0) ); return *p; }
+    inline T&           operator[](int i)           { T* p = Data + i; (void)( (!!(p >= Data && p < DataEnd)) || (_wassert(L"p >= Data && p < DataEnd", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(653)), 0) ); return *p; }
+    inline const T&     operator[](int i) const     { const T* p = Data + i; (void)( (!!(p >= Data && p < DataEnd)) || (_wassert(L"p >= Data && p < DataEnd", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(654)), 0) ); return *p; }
 
     inline T*           begin()                     { return Data; }
     inline const T*     begin() const               { return Data; }
@@ -4590,7 +4592,7 @@ struct ImSpan
     inline const T*     end() const                 { return DataEnd; }
 
     // Utilities
-    inline int  index_from_ptr(const T* it) const   { (void)( (!!(it >= Data && it < DataEnd)) || (_wassert(L"it >= Data && it < DataEnd", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(660)), 0) ); const ptrdiff_t off = it - Data; return (int)off; }
+    inline int  index_from_ptr(const T* it) const   { (void)( (!!(it >= Data && it < DataEnd)) || (_wassert(L"it >= Data && it < DataEnd", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(662)), 0) ); const ptrdiff_t off = it - Data; return (int)off; }
 };
 
 // Helper: ImSpanAllocator<>
@@ -4606,11 +4608,11 @@ struct ImSpanAllocator
     int     Sizes[CHUNKS];
 
     ImSpanAllocator()                               { memset(this, 0, sizeof(*this)); }
-    inline void  Reserve(int n, size_t sz, int a=4) { (void)( (!!(n == CurrIdx && n < CHUNKS)) || (_wassert(L"n == CurrIdx && n < CHUNKS", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(676)), 0) ); CurrOff = (((CurrOff) + ((a) - 1)) & ~((a) - 1)); Offsets[n] = CurrOff; Sizes[n] = (int)sz; CurrIdx++; CurrOff += (int)sz; }
+    inline void  Reserve(int n, size_t sz, int a=4) { (void)( (!!(n == CurrIdx && n < CHUNKS)) || (_wassert(L"n == CurrIdx && n < CHUNKS", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(678)), 0) ); CurrOff = (((CurrOff) + ((a) - 1)) & ~((a) - 1)); Offsets[n] = CurrOff; Sizes[n] = (int)sz; CurrIdx++; CurrOff += (int)sz; }
     inline int   GetArenaSizeInBytes()              { return CurrOff; }
     inline void  SetArenaBasePtr(void* base_ptr)    { BasePtr = (char*)base_ptr; }
-    inline void* GetSpanPtrBegin(int n)             { (void)( (!!(n >= 0 && n < CHUNKS && CurrIdx == CHUNKS)) || (_wassert(L"n >= 0 && n < CHUNKS && CurrIdx == CHUNKS", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(679)), 0) ); return (void*)(BasePtr + Offsets[n]); }
-    inline void* GetSpanPtrEnd(int n)               { (void)( (!!(n >= 0 && n < CHUNKS && CurrIdx == CHUNKS)) || (_wassert(L"n >= 0 && n < CHUNKS && CurrIdx == CHUNKS", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(680)), 0) ); return (void*)(BasePtr + Offsets[n] + Sizes[n]); }
+    inline void* GetSpanPtrBegin(int n)             { (void)( (!!(n >= 0 && n < CHUNKS && CurrIdx == CHUNKS)) || (_wassert(L"n >= 0 && n < CHUNKS && CurrIdx == CHUNKS", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(681)), 0) ); return (void*)(BasePtr + Offsets[n]); }
+    inline void* GetSpanPtrEnd(int n)               { (void)( (!!(n >= 0 && n < CHUNKS && CurrIdx == CHUNKS)) || (_wassert(L"n >= 0 && n < CHUNKS && CurrIdx == CHUNKS", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(682)), 0) ); return (void*)(BasePtr + Offsets[n] + Sizes[n]); }
     template<typename T>
     inline void  GetSpan(int n, ImSpan<T>* span)    { span->set((T*)GetSpanPtrBegin(n), (T*)GetSpanPtrEnd(n)); }
 };
@@ -4631,7 +4633,7 @@ struct ImPool
     ~ImPool()   { Clear(); }
     T*          GetByKey(ImGuiID key)               { int idx = Map.GetInt(key, -1); return (idx != -1) ? &Buf[idx] : ((void *)0); }
     T*          GetByIndex(ImPoolIdx n)             { return &Buf[n]; }
-    ImPoolIdx   GetIndex(const T* p) const          { (void)( (!!(p >= Buf.Data && p < Buf.Data + Buf.Size)) || (_wassert(L"p >= Buf.Data && p < Buf.Data + Buf.Size", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(701)), 0) ); return (ImPoolIdx)(p - Buf.Data); }
+    ImPoolIdx   GetIndex(const T* p) const          { (void)( (!!(p >= Buf.Data && p < Buf.Data + Buf.Size)) || (_wassert(L"p >= Buf.Data && p < Buf.Data + Buf.Size", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(703)), 0) ); return (ImPoolIdx)(p - Buf.Data); }
     T*          GetOrAddByKey(ImGuiID key)          { int* p_idx = Map.GetIntRef(key, -1); if (*p_idx != -1) return &Buf[*p_idx]; *p_idx = FreeIdx; return Add(); }
     bool        Contains(const T* p) const          { return (p >= Buf.Data && p < Buf.Data + Buf.Size); }
     void        Clear()                             { for (int n = 0; n < Map.Data.Size; n++) { int idx = Map.Data[n].val_i; if (idx != -1) Buf[idx].~T(); } Map.Clear(); Buf.clear(); FreeIdx = AliveCount = 0; }
@@ -4663,11 +4665,11 @@ struct ImChunkStream
     int     size() const                { return Buf.Size; }
     T*      alloc_chunk(size_t sz)      { size_t HDR_SZ = 4; sz = (((HDR_SZ + sz) + ((4u) - 1)) & ~((4u) - 1)); int off = Buf.Size; Buf.resize(off + (int)sz); ((int*)(void*)(Buf.Data + off))[0] = (int)sz; return (T*)(void*)(Buf.Data + off + (int)HDR_SZ); }
     T*      begin()                     { size_t HDR_SZ = 4; if (!Buf.Data) return ((void *)0); return (T*)(void*)(Buf.Data + HDR_SZ); }
-    T*      next_chunk(T* p)            { size_t HDR_SZ = 4; (void)( (!!(p >= begin() && p < end())) || (_wassert(L"p >= begin() && p < end()", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(733)), 0) ); p = (T*)(void*)((char*)(void*)p + chunk_size(p)); if (p == (T*)(void*)((char*)end() + HDR_SZ)) return (T*)0; (void)( (!!(p < end())) || (_wassert(L"p < end()", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(733)), 0) ); return p; }
+    T*      next_chunk(T* p)            { size_t HDR_SZ = 4; (void)( (!!(p >= begin() && p < end())) || (_wassert(L"p >= begin() && p < end()", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(735)), 0) ); p = (T*)(void*)((char*)(void*)p + chunk_size(p)); if (p == (T*)(void*)((char*)end() + HDR_SZ)) return (T*)0; (void)( (!!(p < end())) || (_wassert(L"p < end()", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(735)), 0) ); return p; }
     int     chunk_size(const T* p)      { return ((const int*)p)[-1]; }
     T*      end()                       { return (T*)(void*)(Buf.Data + Buf.Size); }
-    int     offset_from_ptr(const T* p) { (void)( (!!(p >= begin() && p < end())) || (_wassert(L"p >= begin() && p < end()", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(736)), 0) ); const ptrdiff_t off = (const char*)p - Buf.Data; return (int)off; }
-    T*      ptr_from_offset(int off)    { (void)( (!!(off >= 4 && off < Buf.Size)) || (_wassert(L"off >= 4 && off < Buf.Size", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(737)), 0) ); return (T*)(void*)(Buf.Data + off); }
+    int     offset_from_ptr(const T* p) { (void)( (!!(p >= begin() && p < end())) || (_wassert(L"p >= begin() && p < end()", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(738)), 0) ); const ptrdiff_t off = (const char*)p - Buf.Data; return (int)off; }
+    T*      ptr_from_offset(int off)    { (void)( (!!(off >= 4 && off < Buf.Size)) || (_wassert(L"off >= 4 && off < Buf.Size", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(739)), 0) ); return (T*)(void*)(Buf.Data + off); }
     void    swap(ImChunkStream<T>& rhs) { rhs.Buf.swap(Buf); }
 };
 
@@ -7370,7 +7372,7 @@ namespace ImGui
      ImGuiKeyData* GetKeyData(ImGuiContext* ctx, ImGuiKey key);
     inline ImGuiKeyData*    GetKeyData(ImGuiKey key)                                    { ImGuiContext& g = *GImGui; return GetKeyData(&g, key); }
      const char*   GetKeyChordName(ImGuiKeyChord key_chord);
-    inline ImGuiKey         MouseButtonToKey(ImGuiMouseButton button)                   { (void)( (!!(button >= 0 && button < ImGuiMouseButton_COUNT)) || (_wassert(L"button >= 0 && button < ImGuiMouseButton_COUNT", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(3443)), 0) ); return (ImGuiKey)(ImGuiKey_MouseLeft + button); }
+    inline ImGuiKey         MouseButtonToKey(ImGuiMouseButton button)                   { (void)( (!!(button >= 0 && button < ImGuiMouseButton_COUNT)) || (_wassert(L"button >= 0 && button < ImGuiMouseButton_COUNT", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(3445)), 0) ); return (ImGuiKey)(ImGuiKey_MouseLeft + button); }
      bool          IsMouseDragPastThreshold(ImGuiMouseButton button, float lock_threshold = -1.0f);
      ImVec2        GetKeyMagnitude2d(ImGuiKey key_left, ImGuiKey key_right, ImGuiKey key_up, ImGuiKey key_down);
      float         GetNavTweakPressedAmount(ImGuiAxis axis);
@@ -7396,7 +7398,7 @@ namespace ImGui
      void          SetKeyOwnersForKeyChord(ImGuiKeyChord key, ImGuiID owner_id, ImGuiInputFlags flags = 0);
      void          SetItemKeyOwner(ImGuiKey key, ImGuiInputFlags flags);       // Set key owner to last item if it is hovered or active. Equivalent to 'if (IsItemHovered() || IsItemActive()) { SetKeyOwner(key, GetItemID());'.
      bool          TestKeyOwner(ImGuiKey key, ImGuiID owner_id);               // Test that key is either not owned, either owned by 'owner_id'
-    inline ImGuiKeyOwnerData* GetKeyOwnerData(ImGuiContext* ctx, ImGuiKey key)          { if (key & ImGuiMod_Mask_) key = ConvertSingleModFlagToKey(key); (void)( (!!(IsNamedKey(key))) || (_wassert(L"IsNamedKey(key)", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(3469)), 0) ); return &ctx->KeysOwnerData[key - ImGuiKey_NamedKey_BEGIN]; }
+    inline ImGuiKeyOwnerData* GetKeyOwnerData(ImGuiContext* ctx, ImGuiKey key)          { if (key & ImGuiMod_Mask_) key = ConvertSingleModFlagToKey(key); (void)( (!!(IsNamedKey(key))) || (_wassert(L"IsNamedKey(key)", L"C:\\repos\\i2d-imgui\\deps\\cimgui\\generator\\../imgui/imgui_internal.h", (unsigned)(3471)), 0) ); return &ctx->KeysOwnerData[key - ImGuiKey_NamedKey_BEGIN]; }
 
     // [EXPERIMENTAL] High-Level: Input Access functions w/ support for Key/Input Ownership
     // - Important: legacy IsKeyPressed(ImGuiKey, bool repeat=true) _DEFAULTS_ to repeat, new IsKeyPressed() requires _EXPLICIT_ ImGuiInputFlags_Repeat flag.
@@ -7787,6 +7789,69 @@ namespace ImGui
 
 } // namespace ImGui
 
+//-----------------------------------------------------------------------------
+// Docking: Internal Types
+//-----------------------------------------------------------------------------
+// - ImGuiDockRequestType
+// - ImGuiDockRequest
+// - ImGuiDockPreviewData
+// - ImGuiDockNodeSettings
+// - ImGuiDockContext
+//-----------------------------------------------------------------------------
+
+enum ImGuiDockRequestType
+{
+    ImGuiDockRequestType_None = 0,
+    ImGuiDockRequestType_Dock,
+    ImGuiDockRequestType_Undock,
+    ImGuiDockRequestType_Split                  // Split is the same as Dock but without a DockPayload
+};
+
+struct ImGuiDockRequest
+{
+    ImGuiDockRequestType    Type;
+    ImGuiWindow*            DockTargetWindow;   // Destination/Target Window to dock into (may be a loose window or a DockNode, might be NULL in which case DockTargetNode cannot be NULL)
+    ImGuiDockNode*          DockTargetNode;     // Destination/Target Node to dock into
+    ImGuiWindow*            DockPayload;        // Source/Payload window to dock (may be a loose window or a DockNode), [Optional]
+    ImGuiDir                DockSplitDir;
+    float                   DockSplitRatio;
+    bool                    DockSplitOuter;
+    ImGuiWindow*            UndockTargetWindow;
+    ImGuiDockNode*          UndockTargetNode;
+
+    ImGuiDockRequest();
+};
+
+struct ImGuiDockPreviewData
+{
+    ImGuiDockNode   FutureNode;
+    bool            IsDropAllowed;
+    bool            IsCenterAvailable;
+    bool            IsSidesAvailable;           // Hold your breath, grammar freaks..
+    bool            IsSplitDirExplicit;         // Set when hovered the drop rect (vs. implicit SplitDir==None when hovered the window)
+    ImGuiDockNode*  SplitNode;
+    ImGuiDir        SplitDir;
+    float           SplitRatio;
+    ImRect          DropRectsDraw[4 + 1];  // May be slightly different from hit-testing drop rects used in DockNodeCalcDropRects()
+
+    ImGuiDockPreviewData();
+};
+
+// Persistent Settings data, stored contiguously in SettingsNodes (sizeof() ~32 bytes)
+struct ImGuiDockNodeSettings
+{
+    ImGuiID             ID;
+    ImGuiID             ParentNodeId;
+    ImGuiID             ParentWindowId;
+    ImGuiID             SelectedTabId;
+    signed char         SplitAxis;
+    char                Depth;
+    ImGuiDockNodeFlags  Flags;                  // NB: We save individual flags one by one in ascii format (ImGuiDockNodeFlags_SavedFlagsMask_)
+    ImVec2ih            Pos;
+    ImVec2ih            Size;
+    ImVec2ih            SizeRef;
+    ImGuiDockNodeSettings();
+};
 
 //-----------------------------------------------------------------------------
 // [SECTION] ImFontAtlas internal API
