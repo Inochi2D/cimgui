@@ -5629,6 +5629,12 @@ CIMGUI_API void igTextAligned(float align_x,float size_x,const char* fmt,...)
     ImGui::TextAlignedV(align_x,size_x,fmt,args);
     va_end(args);
 }
+#ifdef CIMGUI_VARGS0
+CIMGUI_API void igTextAligned0(float align_x,float size_x,const char* fmt)
+{
+    return igTextAligned(align_x,size_x,fmt);
+}
+#endif
 CIMGUI_API void igTextAlignedV(float align_x,float size_x,const char* fmt,va_list args)
 {
     return ImGui::TextAlignedV(align_x,size_x,fmt,args);

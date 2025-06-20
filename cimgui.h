@@ -5330,6 +5330,9 @@ CIMGUI_API void igRenderRectFilledWithHole(ImDrawList* draw_list,const ImRect ou
 CIMGUI_API ImDrawFlags igCalcRoundingFlagsForRectInRect(const ImRect r_in,const ImRect r_outer,float threshold);
 CIMGUI_API void igTextEx(const char* text,const char* text_end,ImGuiTextFlags flags);
 CIMGUI_API void igTextAligned(float align_x,float size_x,const char* fmt,...);
+#ifdef CIMGUI_VARGS0
+CIMGUI_API void igTextAligned0(float align_x,float size_x,const char* fmt);
+#endif
 CIMGUI_API void igTextAlignedV(float align_x,float size_x,const char* fmt,va_list args);
 CIMGUI_API bool igButtonEx(const char* label,const ImVec2 size_arg,ImGuiButtonFlags flags);
 CIMGUI_API bool igArrowButtonEx(const char* str_id,ImGuiDir dir,ImVec2 size_arg,ImGuiButtonFlags flags);

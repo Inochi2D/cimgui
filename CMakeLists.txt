@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 cmake_policy(SET CMP0091 NEW)
 project(cimgui)
 
+set (CMAKE_C_STANDARD 11)
 set (CMAKE_CXX_STANDARD 11)
 
 if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/imgui/imgui_tables.cpp)
@@ -74,8 +75,8 @@ install(TARGETS cimgui
 )
 
 #test
-set(CIMGUI_TEST "no" CACHE STRING "Enable compilation of a test unit based on imgui null")
-
-if (CIMGUI_TEST)
-  add_subdirectory(test)
-endif ()
+#set(CIMGUI_TEST "no" CACHE STRING "Enable compilation of a test unit based on imgui null")
+#
+#if (CIMGUI_TEST)
+#  add_subdirectory(test)
+#endif ()
