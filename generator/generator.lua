@@ -20,9 +20,9 @@ local CPRE,CTEST
 local implementations = {}
 for i=3,#script_args do
     if script_args[i]:match(COMPILER == "cl" and "^/" or "^%-") then
-		if script_args[i]:match("IMGUI_USE_WCHAR32") then
-			script_args[i] = "" --dont use this define
-		end
+		--if script_args[i]:match("IMGUI_USE_WCHAR32") then
+		--	script_args[i] = "" --dont use this define
+		--end
         local key, value = script_args[i]:match("^(.+)=(.+)$")
         if key and value then
             CFLAGS = CFLAGS .. " " .. key .. "=\"" .. value:gsub("\"", "\\\"") .. "\"";
@@ -299,12 +299,12 @@ local function cimgui_generation(parser)
 	cfuncsstr = colapse_defines(cfuncsstr, "IMGUI_ENABLE_FREETYPE")
     hstrfile = hstrfile:gsub([[#include "auto_funcs%.h"]],cfuncsstr)
 	--patch hstrfile for ImWchar
-	local num
-	hstrfile, num = hstrfile:gsub("typedef ImWchar16 ImWchar;", wchardefine)
-	assert(num == 1)
-	hstrfile, num = hstrfile:gsub("kPagesMap%[%(0xFFFF", "kPagesMap[(IM_UNICODE_CODEPOINT_MAX")
-	assert(num == 1, "kPagesMap[(IM_UNICODE_CODEPOINT_MAX not found or found more than once")
-    save_data("./output/cimgui.h",cimgui_header,hstrfile)
+	--local num
+	--hstrfile, num = hstrfile:gsub("typedef ImWchar16 ImWchar;", wchardefine)
+	--assert(num == 1)
+	--hstrfile, num = hstrfile:gsub("kPagesMap%[%(0xFFFF", "kPagesMap[(IM_UNICODE_CODEPOINT_MAX")
+	--assert(num == 1, "kPagesMap[(IM_UNICODE_CODEPOINT_MAX not found or found more than once")
+    --save_data("./output/cimgui.h",cimgui_header,hstrfile)
     
     --merge it in cimgui_template.cpp to cimgui.cpp
     local cimplem = func_implementation(parser)

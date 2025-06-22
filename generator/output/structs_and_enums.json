@@ -7235,8 +7235,8 @@
         "comment": {
           "sameline": "// 1 bytes if ImWchar=ImWchar16, 16 bytes if ImWchar==ImWchar32. Store 1-bit for each block of 4K codepoints that has one active glyph. This is mainly used to facilitate iterations across all used codepoints."
         },
-        "name": "Used8kPagesMap[(0xFFFF+1)/8192/8]",
-        "size": 1,
+        "name": "Used8kPagesMap[(0x10FFFF+1)/8192/8]",
+        "size": 17,
         "type": "ImU8"
       },
       {
