@@ -2943,7 +2943,7 @@ CIMGUI_API ImGuiID igImHashStr(const char* data,size_t data_size,ImGuiID seed)
 {
     return ImHashStr(data,data_size,seed);
 }
-CIMGUI_API void igImQsort(void* base,size_t count,size_t size_of_element,int(__cdecl*compare_func)(void const*,void const*))
+CIMGUI_API void igImQsort(void* base,size_t count,size_t size_of_element,int(CIMGUI_CDECL *compare_func)(void const*,void const*))
 {
     return ImQsort(base,count,size_of_element,compare_func);
 }
