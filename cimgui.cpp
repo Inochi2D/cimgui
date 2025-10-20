@@ -2948,7 +2948,7 @@ CIMGUI_API const char* igImHashSkipUncontributingPrefix(const char* label)
 {
     return ImHashSkipUncontributingPrefix(label);
 }
-CIMGUI_API void igImQsort(void* base,size_t count,size_t size_of_element,int(__cdecl*compare_func)(void const*,void const*))
+CIMGUI_API void igImQsort(void* base,size_t count,size_t size_of_element,int(CIMGUI_CDECL*compare_func)(void const*,void const*))
 {
     return ImQsort(base,count,size_of_element,compare_func);
 }
