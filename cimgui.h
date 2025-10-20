@@ -35,8 +35,10 @@
 
 #ifdef _MSC_VER
 typedef unsigned __int64 ImU64;
+#define CIMGUI_CDECL __cdecl
 #else
 //typedef unsigned long long ImU64;
+#define CIMGUI_CDECL
 #endif
 
 #ifndef CIMGUI_DEFINE_ENUMS_AND_STRUCTS
@@ -4700,7 +4702,7 @@ CIMGUI_API void ImGuiPlatformImeData_destroy(ImGuiPlatformImeData* self);
 CIMGUI_API ImGuiID igImHashData(const void* data,size_t data_size,ImGuiID seed);
 CIMGUI_API ImGuiID igImHashStr(const char* data,size_t data_size,ImGuiID seed);
 CIMGUI_API const char* igImHashSkipUncontributingPrefix(const char* label);
-CIMGUI_API void igImQsort(void* base,size_t count,size_t size_of_element,int(__cdecl*compare_func)(void const*,void const*));
+CIMGUI_API void igImQsort(void* base,size_t count,size_t size_of_element,int(CIMGUI_CDECL*compare_func)(void const*,void const*));
 CIMGUI_API ImU32 igImAlphaBlendColors(ImU32 col_a,ImU32 col_b);
 CIMGUI_API bool igImIsPowerOfTwo_Int(int v);
 CIMGUI_API bool igImIsPowerOfTwo_U64(ImU64 v);
