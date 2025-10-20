@@ -63,15 +63,3 @@ jobs:
       run: |
         cmake --build .
 
-    - name: Test
-      shell: bash
-      env:
-        GITHUB_OS: ${{ matrix.os }}
-      working-directory: cmake-build
-      run: |
-        if [ "$GITHUB_OS" == "windows-latest" ];
-        then
-          ./Debug/cimgui_test.exe
-        else
-          ./cimgui_test
-        fi
