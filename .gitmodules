@@ -1,4 +1,4 @@
 [submodule "imgui"]
 	path = imgui
 	url = https://github.com/Inochi2D/imgui.git
-	branch = docking
+	branch = 14083df9089645cd38b7b35013cd97c8af9b34bb
